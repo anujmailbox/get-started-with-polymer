@@ -1,0 +1,50 @@
+﻿<link rel="import" href="../bower_components/polymer/polymer.html" />
+
+<dom-module id="blog-post">
+    <template>
+        <div class$="{{class}}">
+            <h2 title$="{{postTitle}}">Title: <span>{{postTitle}}</span></h2>
+            <content select="post-content"></content>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "blog-post",
+            properties: {
+                postTitle: {
+                    type: String,
+                    value: "This needs a Title!!!"
+                },
+                published: {
+                    type: Boolean,
+                    value: false
+                }
+            },
+            foo: function () {
+                console.log(this.postTitle);
+            }
+        });
+    </script>
+</dom-module>
+
+<dom-module id="post-title">
+    <template>
+        <h2><content></content></h2>
+    </template>
+    <script>
+        Polymer({
+            is: "post-title"
+        });
+    </script>
+</dom-module>
+
+<dom-module id="post-content">
+    <template>
+        <div><content></content></div>
+    </template>
+    <script>
+        Polymer({
+            is: "post-content"
+        });
+    </script>
+</dom-module>

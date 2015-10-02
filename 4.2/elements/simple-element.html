@@ -1,0 +1,38 @@
+﻿<link rel="import" href="../bower_components/polymer/polymer.html" />
+
+<dom-module id="simple-element">
+    <template>
+        <div id="message"></div>
+        <span></span>
+        <content></content>
+    </template>
+    <script>
+        Polymer({
+            is: "simple-element",
+            ready: function () {
+                //var div = Polymer.dom(this.root).querySelector("div");
+                var div = this.$.message;
+                div.textContent = "Simple content";
+
+                var span = this.$$("span");
+                span.innerHTML = "<em>This is a span element</em>";
+
+                var iElement = document.createElement("i");
+                Polymer.dom(this.root).appendChild(iElement);
+
+                //var el = Polymer.dom(iElement);
+                //el.setAttribute();
+                //el.nextSibling;
+
+                //var light = document.createElement("div");
+                //Polymer.dom(this).appendChild(light);
+
+                var p = Polymer.dom(this).querySelector("p"); // p element int he light dom
+                var content = Polymer.dom(this.root).querySelector("content");
+
+                var nodes = content.getDistributedNodes();
+
+            }
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,29 @@
+﻿<link rel="import" href="../bower_components/polymer/polymer.html" />
+
+<dom-module id="simple-element">
+    <template>
+        <div id="message">This is some content in the local dom.</div>
+    </template>
+    <script>
+        Polymer({
+            is: "simple-element",
+            //listeners: {
+            //    click: "handleClick"
+            //},
+            ready: function () {
+                this.listen(this.$.message, "click", "handleClick2");
+
+            },
+            handleClick: function (e) {
+                console.log(e);
+            },
+            handleClick2: function (e) {
+                //var evt = Polymer.dom(e);
+                //console.log(evt.rootTarget);
+                //console.log(evt.localTarget);
+                //console.log(evt.path);
+                this.fire("tickle", { tickled: true });
+            }
+        });
+    </script>
+</dom-module>

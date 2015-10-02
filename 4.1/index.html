@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = "shadow";
+    </script>
+    <link rel="import" href="elements/hello-world.html" />
+    <link rel="import" href="elements/blog-post.html" />
+    <link rel="import" href="elements/data-binding.html" />
+</head>
+<body>
+    <!--<editable-item value="Some Value"></editable-item>-->
+    <data-list></data-list>
+
+    <script>
+        var list = document.querySelector("data-list");
+
+        list.data = [
+            "Jeremy",
+            "John",
+            "Jim",
+            "Tom"
+        ];
+    </script>
+</body>
+</html>

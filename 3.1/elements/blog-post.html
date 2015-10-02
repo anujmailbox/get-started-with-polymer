@@ -1,0 +1,38 @@
+﻿<link rel="import" href="../bower_components/polymer/polymer.html" />
+
+
+<dom-module id="blog-post">
+    <template>
+        <div class="blog-post">
+            <content select="post-title"></content>
+            <content select="post-content"></content>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "blog-post"
+        });
+    </script>
+</dom-module>
+
+<dom-module id="post-title">
+    <template>
+        <h2><content></content></h2>
+    </template>
+    <script>
+        Polymer({
+            is: "post-title"
+        });
+    </script>
+</dom-module>
+
+<dom-module id="post-content">
+    <template>
+        <div><content></content></div>
+    </template>
+    <script>
+        Polymer({
+            is: "post-content"
+        });
+    </script>
+</dom-module>

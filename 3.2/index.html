@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = "shadow";
+    </script>
+    <link rel="import" href="elements/hello-world.html" />
+    <link rel="import" href="elements/blog-post.html" />
+    <style>
+        .blog-post {
+            color: blue !important;
+        }
+
+        blog-post::shadow .blog-post {
+            color: blue;
+        }
+
+        post-title::shadow h2 {
+            color: blue;
+        }
+
+        h2.post-title {
+            color: blue !important;
+        }
+
+        ul {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <hello-world>
+        <p>Thank you for visiting our site.</p>
+        <ul data-foo="foo">
+            <li>Howdy</li>
+            <li>Hello</li>
+            <li>Hi</li>
+        </ul>
+    </hello-world>
+    <blog-post>
+        <div>this should not be displayed</div>
+        <post-title>A Blog Post Title</post-title>
+        <post-content>This is a blog post's content.</post-content>
+    </blog-post>
+</body>
+</html>

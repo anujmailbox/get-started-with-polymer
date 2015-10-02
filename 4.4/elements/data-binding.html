@@ -1,0 +1,74 @@
+﻿<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="../bower_components/paper-button/paper-button.html" />
+
+
+<dom-module id="editable-item">
+    <template>
+        <h2>{{value}}</h2>
+        <input type="text" value="{{value::input}}" />
+        <!--<button on-click="reset">Reset</button>-->
+        <paper-button raised on-click="reset">Reset</paper-button>
+        <editable-child value="[[value]]"></editable-child>
+    </template>
+    <script>
+        Polymer({
+            is: "editable-item",
+            reset: function () {
+                this.value = "Reset Value";
+            }
+        });
+    </script>
+</dom-module>
+
+<dom-module id="editable-child">
+    <template>
+        <p>{{value}}</p>
+        <input type="text" value="{{value::input}}" />
+        <button on-click="reset">Reset</button>
+    </template>
+    <script>
+        Polymer({
+            is: "editable-child",
+            properties: {
+                value: {
+                    type: String,
+                    notify: true
+                }
+            },
+            reset: function () {
+                this.value = "Reset Value";
+            }
+        });
+    </script>
+</dom-module>
+
+<dom-module id="data-list">
+    <template>
+        <ul>
+            <!--<template is="dom-repeat" items="{{data}}" filter="namesWithT"> -->
+            <template is="dom-repeat" items="{{data}}">
+                <li>
+                    <span>{{item}}</span> 
+
+                    <template is="dom-if" if="{{namesWithT(item)}}">
+                        (His name starts with T).
+                    </template>
+                </li>
+            </template>
+        </ul>
+    </template>
+    <script>
+        Polymer({
+            is: "data-list",
+            properties: {
+                data: {
+                    type: Array,
+                    value: []
+                }
+            },
+            namesWithT: function (item) {
+                return item.startsWith("T");
+            }
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = "shadow";
+    </script>
+    <link rel="import" href="elements/hello-world.html" />
+    <link rel="import" href="elements/blog-post.html" />
+    <link rel="import" href="elements/data-binding.html" />
+    <link rel="import" href="elements/simple-element.html" />
+
+</head>
+<body>
+    <simple-element>
+        
+    </simple-element>
+    <script>
+        document.querySelector("simple-element")
+            .addEventListener("tickle", function (e) {
+                console.log(e);
+            });
+    </script>
+</body>
+</html>

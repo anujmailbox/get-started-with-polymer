@@ -1,0 +1,21 @@
+﻿<link rel="import" href="../bower_components/polymer/polymer.html" />
+
+<dom-module id="hello-world">
+    <template>
+        <style>
+            ul {
+                color: black;
+            }
+        </style>
+        <h1>Hello, World!</h1>
+        <content select="p"></content>
+        <div>
+            <content select="ul[data-foo='foo']"></content>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: "hello-world"
+        });
+    </script>
+</dom-module>
